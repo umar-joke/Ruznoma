@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Рӯзномаи электронӣ</title>
+  <link rel="stylesheet" href="style.css?v=fillimg1">
+  <script>
+    (function(){
+      try{
+        var r = localStorage.getItem("sd.role") || sessionStorage.getItem("sd.role");
+        if((r==="student" || r==="parent") && localStorage.getItem("sd.ready")==="1" && (localStorage.getItem("sd.userId") || localStorage.getItem("sd.studentId") || localStorage.getItem("sd.parentId"))){
+          document.documentElement.classList.add("remembered");
+        }
+      }catch(e){}
+    })();
+  </script>
+</head>
+<body>
+<div class="phone">
+
+  <section id="login" class="screen login-screen">
+    <img class="login-hero" src="assets/login-hero.jpg" alt="Рӯзномаи электронии мактабӣ">
+    <button type="button" class="hit hit-student" id="btnStudent" aria-label="Ман — Хонанда"></button>
+    <button type="button" class="hit hit-parent" id="btnParent" aria-label="Ман — Падар"></button>
+  </section>
+
+  <section id="auth" class="screen app-screen hidden">
+    <header class="top" id="authTop"></header>
+    <main class="content" id="authContent"></main>
+  </section>
+
+  <section id="register" class="screen app-screen hidden">
+    <header class="top" id="regTop"></header>
+    <main class="content" id="regContent"></main>
+  </section>
+
+  <section id="app" class="screen app-screen hidden">
+    <header class="top" id="topbar"></header>
+    <main class="content" id="content"></main>
+    <nav class="tabbar" id="tabbar"></nav>
+  </section>
+
+  <div class="overlay hidden" id="notifOverlay">
+    <div class="lock-bg" onclick="closeNotif()"></div>
+    <article class="lock-card" id="notifCard"></article>
+  </div>
+
+  <div class="overlay dim hidden" id="gradeOverlay" onclick="if(event.target===this)closeGradeSheet()">
+    <div class="sheet" id="gradeSheet"></div>
+  </div>
+
+  <div class="overlay hidden" id="aboutOverlay" onclick="if(event.target===this)closeAbout()">
+    <div class="sheet">
+      <h3>Дар бораи барнома</h3>
+      <p>Рӯзномаи электронии мактабӣ. Хонанда баҳо мегузорад, падар мебинад ва огоҳнома мегирад.</p>
+      <button class="btn-main" onclick="closeAbout()">Хуб</button>
+    </div>
+  </div>
+
+</div>
+<script src="app.js?v=nobadge1"></script>
+</body>
+</html>
